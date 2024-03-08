@@ -14,31 +14,30 @@
   <header>
     <div class="title">
       <a href="index.html">Shortest Path Finder</a>
-      <a href="./instructions.html"><img src="https://cdn4.iconfinder.com/data/icons/web-mobile1/100/Untitled-8-512.png"
+      <a href="./instructions.html"><img title="Instructions"  src="https://cdn-icons-png.freepik.com/512/63/63830.png"
           alt="" /></a>
     </div>
     <div class="options">
       <div>
         <button style="box-shadow: 1px 2px 3px 1px #333;" class="outline-btn" id="add-edge-enable" onclick="addEdges()">
-          Add edges
+          Add routes
         </button>
         <button style="box-shadow: 1px 2px 3px 1px #333;" class="outline-btn reset-btn" onclick="resetDrawingArea()" disabled>
           Clear
         </button>
       </div>
       <div>
-        <input style="border-radius: 4px;" type="text" inputmode="numeric" id="source-node" placeholder="Source Node" />
+        <input  style="border-radius: 4px;" type="text" inputmode="numeric" id="source-node" placeholder="Initial station"  />
         <button style="box-shadow: 1px 2px 3px 1px #333;" class="outline-btn run-btn" onclick="findShortestPath(this)" disabled>
-          Run
+          Go
         </button>
       </div>
     </div>
   </header>
   <div class="drawing-area">
-    <p class="click-instruction">Click to create node</p>
+    <p class="click-instruction">Click to create station</p>
   </div>
   <div class="path"></div>
-
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js"></script>
   <script src="./gsap.js"></script>

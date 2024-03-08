@@ -12,7 +12,7 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
-    background-color: #333;
+    background-color: #161414;
     width: 100%;
     height: 100vh;
     z-index: -1;
@@ -30,7 +30,7 @@
     position: absolute;
     width: 50px;
     height: 50px;
-    border: 5px solid rgb(163, 211, 208);
+    border: 5px solid rgb(113, 65, 226);
     border-radius: 50%;
     margin-top: -3px;
     display: flex;
@@ -63,7 +63,7 @@
   }
   .line {
     height: 5px;
-    background-color: lemonchiffon;
+    background-color: rgb(160, 143, 173);
     position: absolute;
     transform-origin: top left;
     text-align: center;
@@ -78,7 +78,7 @@
   header {
     width: 100%;
     padding: 20px;
-    background-image:linear-gradient(to right, #d62f96, #e94057, #d3763d);
+    background-image:linear-gradient(to right, #994a8c, #8e62a0, #7c5dc2);
     color: white; /* Text color */
     text-align: center;
   }

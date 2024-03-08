@@ -14,7 +14,7 @@ if (alerted !== "yes") {
 // It is called when user starts adding edges by clicking on button given
 const addEdges = () => {
   if (cnt < 2) {
-    alert("Create atleast two nodes to add an edge");
+    alert("Create at least two stations to add a route");
     return;
   }
 
@@ -39,9 +39,9 @@ const appendBlock = (x, y) => {
   block.style.top = `${y}px`;
   block.style.left = `${x}px`;
   block.style.transform = `translate(-50%,-50%)`;
-  block.id = cnt;
+  block.id = cnt; // Change here
+block.innerText = `S-${cnt++}`; // Change here
 
-  block.innerText = cnt++;
 
   // Click event for node
   block.addEventListener("click", (e) => {
@@ -51,7 +51,7 @@ const appendBlock = (x, y) => {
     // If state variable addEdge is false, can't start adding edges
     if (!addEdge) return;
 
-    block.style.backgroundColor = "coral";
+    block.style.backgroundColor = "#994a8c";
     arr.push(block.id);
 
     // When two elements are push, draw a edge and empty the array
@@ -66,8 +66,8 @@ const appendBlock = (x, y) => {
 // Allow creating nodes on screen by clicking
 blocks.addEventListener("click", (e) => {
   if (addEdge) return;
-  if (cnt > 12) {
-    alert("cannot add more than 12 vertices");
+  if (cnt > 11) {
+    alert("Cannot add more than 12 stations");
     return;
   }
   console.log(e.x, e.y);
@@ -111,7 +111,7 @@ const drawLine = (x1, y1, x2, y2, ar) => {
   p.inputMode = "numeric";
   p.addEventListener("blur", (e) => {
     if (isNaN(Number(e.target.innerText))) {
-      alert("Enter valid edge weight");
+      alert("Enter valid route weight");
       return;
     }
     n1 = Number(p.closest(".line").id.split("-")[1]);
@@ -155,8 +155,8 @@ const findShortestPath = (el) => {
   clearScreen();
 
   let source = Number(el.previousElementSibling.value);
-  if (source >= cnt || isNaN(source)) {
-    alert("Invalid source");
+  if (source >= cnt || isNaN(source) || source === '') {
+    alert("Invalid initial station number");
     return;
   }
   document.getElementById(source).style.backgroundColor = "grey";
@@ -214,7 +214,7 @@ const indicatePath = async (parentArr, src) => {
   document.getElementsByClassName("path")[0].innerHTML = "";
   for (i = 0; i < cnt; i++) {
     let p = document.createElement("p");
-    p.innerText = "Node " + i + " --> " + src;
+    p.innerText = "Station " + i + " --> " + src;
     await printPath(parentArr, i, p);
   }
 };
@@ -241,7 +241,7 @@ const printPath = async (parent, j, el_p) => {
 const colorEdge = async (el) => {
   if (el.style.backgroundColor !== "aqua") {
     await wait(1000);
-    el.style.backgroundColor = "aqua";
+    el.style.backgroundColor = "#7c5dc2";
     el.style.height = "8px";
   }
 };
@@ -270,6 +270,7 @@ const resetDrawingArea = () => {
   cnt = 0;
   dist = [];
   addEdge = false;
+  // window.location.reload();
 };
 
 const wait = async (t) => {
