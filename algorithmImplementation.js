@@ -270,7 +270,7 @@ const resetDrawingArea = () => {
   cnt = 0;
   dist = [];
   addEdge = false;
-  // window.location.reload();
+  window.location.reload();
 };
 
 const wait = async (t) => {
